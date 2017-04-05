@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Angular实现数据列表呈现</title>
+</head>
+
+<body ng-app="myApp">
+  <ul ng-controller="DemoController">
+    <li ng-repeat="item in data" data-id="item.id">
+      <span>{{item.name}}</span><span>{{item.age}}</span>
+    </li>
+  </ul>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+    (function() {
+      angular.module('myApp', [])
+        .controller('DemoController', function($scope) {
+          var data = [
+            { id: 1, name: '张三', age: 19 },
+            { id: 2, name: '李四', age: 22 },
+            { id: 3, name: '王五', age: 33 },
+            { id: 4, name: '安安', age: 11 },
+            { id: 5, name: '预约', age: 22 },
+            { id: 6, name: '搜索', age: 44 }
+          ];
+          $scope.data = data;
+        });
+    })();
+  </script>
+</body>
+
+</html>

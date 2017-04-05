@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>angular controller</title>
+    <script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
+</head>
+
+<body ng-app="myModule" ng-controller="DemoController">
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+    // 由于控制器是必须出现在某个模块下的，想创建一个控制器必须先创建模块
+    var module = angular.module('myModule', []); // 返回的就是模块对象
+
+    // angular在执行控制器函数时，
+    // 会根据参数的名字（$scope）去自动的注入对象
+    // 根据参数名称传递对应对象，所以必须要写正确的参数名称
+    // module.controller('DemoController', function($scope) {
+    //   console.log($scope);
+    // });
+    
+    // 由于压缩代码会改变参数名称，注册控制的标准方式就是通过第二个参数传递数组的方式（数组的成员最后一个就是原本的控制器函数，前面的成员都是需要注入的对象名称）
+    // 为了准确性 建议以后第二个参数都写成数组的形式
+    module.controller('DemoController', ['$scope', '$http', function(a, b) {
+        console.log(a);
+    }]);
+    </script>
+</body>
+
+</html>

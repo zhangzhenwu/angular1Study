@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='LoginApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>watch</title>
+	<script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
+</head>
+<body>
+  <table border="1" ng-controller="UserController">
+    <tr>
+      <td>用户名</td>
+      <td>
+        <input type="text" ng-model="user.username">
+      </td>
+    </tr>
+    <tr>
+      <td>密码</td>
+      <td>
+        <input type="password" ng-model="user.password">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="button" ng-click="login()" value="登陆">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>{{message}}</td>
+    </tr>
+  </table>
+  <script src="bower_components/angular/angular.js"></script>
+  <script>
+    // 创建一个模块
+    var app = angular.module('LoginApp', []);
+
+    // 为这个模块创建一个控制器
+    app.controller('UserController', ['$scope', function($scope) {
+
+      //用户模型
+      $scope.user = {
+        username: '',
+        password: ''
+      };
+
+
+      // 行为数据
+      $scope.login = function() {
+        // 因为数据的变化时双向的同步，所以界面上的值变化会同步到$scope.user上
+        console.log($scope.user);
+      };
+
+
+      // 请输入用户名  输入格式不合法
+      $scope.message = '请输入用户名';
+      // $scope.message取决于$scope.user
+
+      // 官方的API中提供了一个$scope.$watch方法，
+      $scope.$watch('user.username', function(now, old) {
+        // 当user.username发生变化时触发这个函数
+        // console.log('now is ' + now);
+        // console.log('old is ' + old);
+        if (now) {
+          if (now.length < 8) {
+            $scope.message = '输入格式不合法';
+          } else {
+            $scope.message = '';
+          }
+        } else {
+          $scope.message = '请输入用户名';
+        }
+      });
+
+      // angular 基本不用操作DOM，如果必要，可以使用angular提供的jqlite 在后面的轮播图案例中有用这个 可以了解下
+      // angular.element('body')
+    }]);
+  </script>
+</body>
+</html>

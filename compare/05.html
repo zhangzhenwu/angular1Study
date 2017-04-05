@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>传统方式实现数据列表呈现</title>
+</head>
+
+<body>
+  <ul id="list"></ul>
+  <script>
+    (function(window, document) {
+      var data = [
+        { id: 1, name: '张三', age: 19 },
+        { id: 2, name: '李四', age: 22 },
+        { id: 3, name: '王五', age: 33 },
+        { id: 4, name: '安安', age: 11 },
+        { id: 5, name: '预约', age: 22 },
+        { id: 6, name: '搜索', age: 44 }
+      ];
+      var ulElement = document.querySelector('#list');
+      for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        var liElement = document.createElement('li');
+        liElement.dataset['id'] = item.id;
+        var spanElement1 = document.createElement('span');
+        var nameNode = document.createTextNode(item.name);
+        spanElement1.appendChild(nameNode);
+        var spanElement2 = document.createElement('span');
+        var ageNode = document.createTextNode(item.age);
+        spanElement2.appendChild(ageNode);
+        liElement.appendChild(spanElement1);
+        liElement.appendChild(spanElement2);
+        ulElement.appendChild(liElement);
+      }
+    })(window, document);
+  </script>
+</body>
+
+</html>

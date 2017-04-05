@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<!--
+所有需要ng管理的代码必须被包裹在一个有ng-app指令的元素中
+ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个指令进行分析和操作）
+如果有多个ng-app 默认是使用第一个的
+ng-init 初始化 基本不常用的
+-->
+<body ng-app>
+	<div ng-init="tip='hello world'">
+		<h1>angualr双边数据绑定</h1>
+		<input type="text" name="" ng-model='tip'>
+		<p>
+			{{tip}}
+		</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>传统方式实现加法运算</title>
+</head>
+
+<body>
+  <input id="txt_p1" type="number">
+  <span> + </span>
+  <input id="txt_p2" type="number">
+  <input id="btn_add" type="button" value=" = ">
+  <input id="txt_result" type="number">
+  <script>
+    (function(window, document) {
+      var txt1 = document.querySelector('#txt_p1');
+      var txt2 = document.querySelector('#txt_p2');
+      var txtResult = document.querySelector('#txt_result');
+      var btn = document.querySelector('#btn_add');
+      btn.addEventListener('click', function(e) {
+        var t1 = txt1.value - 0;
+        var t2 = txt2.value - 0;
+        txtResult.value = t1 + t2;
+      });
+    })(window, document);
+  </script>
+</body>
+
+</html>

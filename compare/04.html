@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>使用AngularJS实现加法运算</title>
+</head>
+
+<body ng-app>
+  <input id="txt_p1" type="number" ng-model="parameter1">
+  <span> + </span>
+  <input id="txt_p2" type="number" ng-model="parameter2">
+  <input id="btn_add" type="button" value=" = " ng-click="result=parameter1+parameter2">
+  <input id="txt_result" type="number" ng-model="result">
+  <script src="../bower_components/angular/angular.js"></script>
+</body>
+
+</html>

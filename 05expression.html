@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>expression</title>
+	<script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
+</head>
+ <style>
+    /* ng-cloak指令就是在NG执行完毕过后自动移除 */
+    /*为了防止页面刚开始渲染的时候把angular代码渲染出来 有一个闪现的情况 不过如果引入angular.js在代码后面 这种方式也是没有用的 只能通过在style hack的这种方式重写一遍*/
+    [ng-cloak],
+    .ng-cloak {
+      display: none;
+    }
+  </style>
+</head>
+
+<body ng-app class="ng-cloak">
+  {{ true ? 'true':'false' }}
+</body>
+</html>

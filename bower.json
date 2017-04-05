@@ -1,0 +1,17 @@
+{
+  "name": "angulardemo",
+  "authors": [
+    "zhangxiaowu <363529994@qq.com>"
+  ],
+  "description": "learn angular",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
